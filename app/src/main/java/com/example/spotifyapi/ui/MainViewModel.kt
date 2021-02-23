@@ -1,4 +1,6 @@
 package com.example.spotifyapi.ui
 
-class MainViewModel {
+import androidx.lifecycle.ViewModel
+
+class MainViewModel: ViewModel() {
 }
