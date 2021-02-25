@@ -9,5 +9,18 @@
         android:id="@+id/playlistFragment"
         android:name="com.example.spotifyapi.ui.fragments.playlist.PlaylistFragment"
         android:label="Playlist"
-        tools:layout="@layout/fragment_playlist" />
+        tools:layout="@layout/fragment_playlist" >
+        <action
+            android:id="@+id/action_playlistFragment_to_trackDetailFragment"
+            app:destination="@id/trackDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trackDetailFragment"
+        android:name="com.example.spotifyapi.ui.fragments.trackdetail.TrackDetailFragment"
+        android:label="Track"
+        tools:layout="@layout/track_detail_fragment" >
+        <argument
+            android:name="item"
+            app:argType="com.example.spotifyapi.data.model.Item" />
+    </fragment>
 </navigation>
