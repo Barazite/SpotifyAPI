@@ -3,6 +3,9 @@ package com.example.spotifyapi.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.spotifyapi.R
 import com.example.spotifyapi.databinding.ActivityMainBinding
 
@@ -15,5 +18,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val navController = (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.playlistFragment))
+        binding.myToolBar.setupWithNavController(navController, appBarConfiguration)
     }
 }

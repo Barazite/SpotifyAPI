@@ -4,11 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/srFragmentPlaylist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
@@ -16,7 +11,7 @@
         tools:context=".ui.fragments.playlist.PlaylistFragment">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvFragmentList"
+            android:id="@+id/rvFragmentPlaylist"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,5 +31,4 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
