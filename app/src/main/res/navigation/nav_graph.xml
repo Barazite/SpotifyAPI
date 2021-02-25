@@ -12,15 +12,27 @@
         tools:layout="@layout/fragment_playlist" >
         <action
             android:id="@+id/action_playlistFragment_to_trackDetailFragment"
-            app:destination="@id/trackDetailFragment" />
+            app:destination="@id/DetailFragment" />
+        <action
+            android:id="@+id/action_playlistFragment_to_infoPlaylistFragment"
+            app:destination="@id/infoPlaylistFragment" />
     </fragment>
     <fragment
-        android:id="@+id/trackDetailFragment"
-        android:name="com.example.spotifyapi.ui.fragments.trackdetail.TrackDetailFragment"
+        android:id="@+id/DetailFragment"
+        android:name="com.example.spotifyapi.ui.fragments.detail.DetailFragment"
         android:label="Track"
-        tools:layout="@layout/track_detail_fragment" >
+        tools:layout="@layout/detail_fragment" >
         <argument
             android:name="item"
             app:argType="com.example.spotifyapi.data.model.Item" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoPlaylistFragment"
+        android:name="com.example.spotifyapi.ui.fragments.infoplaylist.InfoPlaylistFragment"
+        android:label="Playlist information"
+        tools:layout="@layout/fragment_info_playlist" >
+        <argument
+            android:name="playlistId"
+            app:argType="string" />
     </fragment>
 </navigation>

@@ -25,6 +25,7 @@ class PlaylistFragment : Fragment() {
     val viewModel: PlaylistViewModel by viewModels()
     lateinit var mAdapter: PlaylistAdapter
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPlaylistBinding.inflate(inflater, container, false)
 
@@ -59,15 +60,21 @@ class PlaylistFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
             itemAnimator = DefaultItemAnimator()
         }
+
+        binding.fbFragmentPlaylist.setOnClickListener{
+            findNavController().navigate(PlaylistFragmentDirections.actionPlaylistFragmentToInfoPlaylistFragment(getString(R.string.id_playlist)))
+        }
     }
 
     private fun updateToNormalState(mList: PlaylistState) {
         binding.pbFragmentPlaylist.visibility = View.GONE
+        binding.fbFragmentPlaylist.visibility = View.VISIBLE
         mAdapter.updateList(mList.playlist)
     }
 
     private fun updateToErrorState(dataError: Throwable) {
         binding.pbFragmentPlaylist.visibility = View.GONE
+        binding.fbFragmentPlaylist.visibility = View.GONE
         mAdapter.updateList(listOf())
         val msg = when(dataError) {
             is HttpException -> {
@@ -92,5 +99,6 @@ class PlaylistFragment : Fragment() {
 
     private fun updateToLoadingState(dataLoading: BaseExtraData?) {
         binding.pbFragmentPlaylist.visibility = View.VISIBLE
+        binding.fbFragmentPlaylist.visibility = View.GONE
     }
 }
