@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">SpotifyAPI</string>
     <string name="id_playlist">37i9dQZF1DX3oM43CtKnRV</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="info_user_text">User: %s</string>
+    <string name="info_followers_text">Followers: %s</string>
+    <string name="info_description_text">Description:\n%s</string>
 </resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.fragments.infoplaylist.InfoPlaylistFragment">
+
+    <TextView
+        android:id="@+id/tvInfoPlaylistFragmentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivInfoPlaylistFragment"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfoPlaylistFragmentTitle"
+        tools:src="@drawable/ic_placeholder"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ivInfoPlaylistFragmentUser"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivInfoPlaylistFragment"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/ic_user" />
+
+    <TextView
+        android:id="@+id/tvInfoPlaylistFragmentUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivInfoPlaylistFragmentUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivInfoPlaylistFragmentUser"
+        app:layout_constraintTop_toTopOf="@+id/ivInfoPlaylistFragmentUser" />
+
+    <ImageView
+        android:id="@+id/ivInfoPlaylistFragmentFollowers"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivInfoPlaylistFragmentUser"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/ic_followers" />
+
+    <TextView
+        android:id="@+id/tvInfoPlaylistFragmentFollowers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivInfoPlaylistFragmentFollowers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivInfoPlaylistFragmentFollowers"
+        app:layout_constraintTop_toTopOf="@+id/ivInfoPlaylistFragmentFollowers" />
+
+    <ImageView
+        android:id="@+id/ivInfoPlaylistFragmentDescription"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivInfoPlaylistFragmentFollowers"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/ic_description" />
+
+    <TextView
+        android:id="@+id/tvInfoPlaylistFragmentDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivInfoPlaylistFragmentDescription"
+        app:layout_constraintTop_toTopOf="@+id/ivInfoPlaylistFragmentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

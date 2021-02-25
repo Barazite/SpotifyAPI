@@ -7,10 +7,6 @@ import retrofit2.http.POST
 
 interface TokenService {
 
-    /*@FormUrlEncoded
-    @POST("api/token")
-    suspend fun getAuthToken(@Field("grant_type") grantType: String): TokenResponseDataModel*/
-
     @FormUrlEncoded
     @POST("/api/token")
     fun refreshToken( @Field("grant_type") granType: String): TokenResponseDataModel
