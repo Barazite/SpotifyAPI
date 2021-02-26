@@ -1,3 +1,8 @@
 package com.example.spotifyapi.ui.fragments.detail.album
 
-data class AlbumState()
+import com.example.spotifyapi.data.model.AlbumResponseDataModel
+import java.io.Serializable
+
+data class AlbumState(
+    val album : AlbumResponseDataModel
+): Serializable

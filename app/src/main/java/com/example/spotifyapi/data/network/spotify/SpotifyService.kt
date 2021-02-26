@@ -1,9 +1,6 @@
 package com.example.spotifyapi.data.network.spotify
 
-import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
-import com.example.spotifyapi.data.model.PlaylistResponseDataModel
-import com.example.spotifyapi.data.model.TokenResponseDataModel
-import com.example.spotifyapi.data.model.TrackResponseDataModel
+import com.example.spotifyapi.data.model.*
 import retrofit2.http.*
 
 
@@ -17,5 +14,10 @@ interface SpotifyService {
 
     @GET("tracks/{track_id}")
     suspend fun getTrack(@Path("track_id") id: String): TrackResponseDataModel
+
+    @GET("albums/{album_id}")
+    suspend fun getAlbum(@Path("album_id")id: String): AlbumResponseDataModel
+
+
 
 }

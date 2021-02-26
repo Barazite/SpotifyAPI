@@ -1,6 +1,7 @@
 package com.example.spotifyapi.data.network.spotify
 
 import androidx.viewbinding.BuildConfig
+import com.example.spotifyapi.data.model.AlbumResponseDataModel
 import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
 import com.example.spotifyapi.data.model.PlaylistResponseDataModel
 import com.example.spotifyapi.data.model.TrackResponseDataModel
@@ -26,31 +27,23 @@ class SpotifyNetwork {
     }
 
     private fun createHttpClient(): OkHttpClient {
-        // Create OkHttpClient
         val builder = OkHttpClient.Builder()
             .connectTimeout(90L, TimeUnit.SECONDS)
             .readTimeout(90L, TimeUnit.SECONDS)
             .writeTimeout(90L, TimeUnit.SECONDS)
 
-        // Logger interceptor
         val loggerInterceptor = HttpLoggingInterceptor()
         loggerInterceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         builder.addInterceptor(loggerInterceptor)
 
-       // App token
-        val accessToken = "BQBcKi6fRvUa_z4cad9yE1SsrsL682lT28mRVl49NjtQdflxZNFa6aY8Ah6SxaTqIfyVDimowAizJ508aTg"
+        val accessToken = "BQD136dAHTU5H_SnpDSP1MN38yQIHzYBHc-yeS95Ll2j1BkxO_XJJC8juwDdz9LXqBwCYL3VXIp6-TSjeZg"
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $accessToken")
                 .build()
             chain.proceed(request)
         }
-
-        /*builder.authenticator(RefreshToken())
-            .connectTimeout(90L, TimeUnit.SECONDS)
-            .followRedirects(false)
-            .followSslRedirects(false)*/
-
+        
         return builder.build()
     }
 
@@ -68,6 +61,11 @@ class SpotifyNetwork {
     suspend fun getTrack(id: String): TrackResponseDataModel {
         loadRetrofit()
         return service.getTrack(id)
+    }
+
+    suspend fun getAlbum(id: String): AlbumResponseDataModel {
+        loadRetrofit()
+        return service.getAlbum(id)
     }
 
 }
