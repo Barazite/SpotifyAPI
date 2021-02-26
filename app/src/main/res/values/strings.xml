@@ -6,4 +6,8 @@
     <string name="info_user_text">User: %s</string>
     <string name="info_followers_text">Followers: %s</string>
     <string name="info_description_text">Description:\n%s</string>
+    <string name="track_tab">Track</string>
+    <string name="album_tab">Album</string>
+    <string name="artists_tab">Artists</string>
+    <string name="web_tab">Web</string>
 </resources>
