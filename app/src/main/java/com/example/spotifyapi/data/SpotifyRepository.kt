@@ -2,6 +2,7 @@ package com.example.spotifyapi.data
 
 import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
 import com.example.spotifyapi.data.model.Item
+import com.example.spotifyapi.data.model.TrackResponseDataModel
 import com.example.spotifyapi.data.network.spotify.SpotifyNetwork
 
 class SpotifyRepository {
@@ -12,5 +13,9 @@ class SpotifyRepository {
 
     suspend fun getInfoPlaylist(id: String): InfoPlaylistResponseDataModel {
         return SpotifyNetwork().getInfoPlayList(id)
+    }
+
+    suspend fun getTrack(id: String): TrackResponseDataModel {
+        return SpotifyNetwork().getTrack(id)
     }
 }

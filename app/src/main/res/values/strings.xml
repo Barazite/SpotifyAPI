@@ -10,4 +10,5 @@
     <string name="album_tab">Album</string>
     <string name="artists_tab">Artists</string>
     <string name="web_tab">Sample</string>
+    <string name="track_duration">Duration: %s:%s</string>
 </resources>

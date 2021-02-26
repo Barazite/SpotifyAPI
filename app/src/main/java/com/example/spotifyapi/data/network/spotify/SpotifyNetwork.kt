@@ -3,6 +3,7 @@ package com.example.spotifyapi.data.network.spotify
 import androidx.viewbinding.BuildConfig
 import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
 import com.example.spotifyapi.data.model.PlaylistResponseDataModel
+import com.example.spotifyapi.data.model.TrackResponseDataModel
 import com.example.spotifyapi.data.network.token.RefreshToken
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -37,7 +38,7 @@ class SpotifyNetwork {
         builder.addInterceptor(loggerInterceptor)
 
        // App token
-        val accessToken = "BQBNHPYMOfRq9DVAwLWCwQpWP3xEENIpdtUXaFqYx-mvgYQPQi6HvtBKT3l31I4U7vYURsOCIUPS68M4Fy0"
+        val accessToken = "BQBcKi6fRvUa_z4cad9yE1SsrsL682lT28mRVl49NjtQdflxZNFa6aY8Ah6SxaTqIfyVDimowAizJ508aTg"
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $accessToken")
@@ -62,6 +63,11 @@ class SpotifyNetwork {
     suspend fun getInfoPlayList(id: String): InfoPlaylistResponseDataModel {
         loadRetrofit()
         return service.getInfoPlaylist(id)
+    }
+
+    suspend fun getTrack(id: String): TrackResponseDataModel {
+        loadRetrofit()
+        return service.getTrack(id)
     }
 
 }
