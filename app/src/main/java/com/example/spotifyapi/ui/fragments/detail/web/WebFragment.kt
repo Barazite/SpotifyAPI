@@ -1,25 +1,34 @@
 package com.example.spotifyapi.ui.fragments.detail.web
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.spotifyapi.R
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.fragment.app.Fragment
+import com.example.spotifyapi.databinding.FragmentWebBinding
 
 
-class WebFragment(spotify: String) : Fragment() {
+class WebFragment(private val spotifyUrl: String) : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    lateinit var binding: FragmentWebBinding
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+        binding = FragmentWebBinding.inflate(inflater, container, false)
+
+        binding.wvWebFragment.loadUrl(spotifyUrl)
+        binding.wvWebFragment.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                view.loadUrl(url)
+                return false
+            }
+        }
+
+        return binding.root
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_web, container, false)
-    }
+
 
 }
