@@ -1,10 +1,7 @@
 package com.example.spotifyapi.data.network.spotify
 
 import androidx.viewbinding.BuildConfig
-import com.example.spotifyapi.data.model.AlbumResponseDataModel
-import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
-import com.example.spotifyapi.data.model.PlaylistResponseDataModel
-import com.example.spotifyapi.data.model.TrackResponseDataModel
+import com.example.spotifyapi.data.model.*
 import com.example.spotifyapi.data.network.token.RefreshToken
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -36,7 +33,7 @@ class SpotifyNetwork {
         loggerInterceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         builder.addInterceptor(loggerInterceptor)
 
-        val accessToken = "BQD136dAHTU5H_SnpDSP1MN38yQIHzYBHc-yeS95Ll2j1BkxO_XJJC8juwDdz9LXqBwCYL3VXIp6-TSjeZg"
+        val accessToken = "BQAH86Xa3Zy0WJoO403FktiDC9v2-KU7idyvU-tuROglg6Fdz1HNxtju0G-TUc6bQZrbYhCeD-zEdoaaE9c"
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $accessToken")
@@ -66,6 +63,11 @@ class SpotifyNetwork {
     suspend fun getAlbum(id: String): AlbumResponseDataModel {
         loadRetrofit()
         return service.getAlbum(id)
+    }
+
+    suspend fun getArtist(id: String): ArtistsResponseDataModel {
+        loadRetrofit()
+        return service.getArtist(id)
     }
 
 }
