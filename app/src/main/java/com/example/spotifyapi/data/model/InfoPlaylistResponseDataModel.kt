@@ -1,6 +1,6 @@
 package com.example.spotifyapi.data.model
 
-import android.text.Editable
+
 
 data class InfoPlaylistResponseDataModel(
     val collaborative: Boolean,

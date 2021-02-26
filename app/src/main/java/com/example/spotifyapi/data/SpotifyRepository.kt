@@ -1,5 +1,6 @@
 package com.example.spotifyapi.data
 
+import com.example.spotifyapi.data.model.AlbumResponseDataModel
 import com.example.spotifyapi.data.model.InfoPlaylistResponseDataModel
 import com.example.spotifyapi.data.model.Item
 import com.example.spotifyapi.data.model.TrackResponseDataModel
@@ -17,5 +18,9 @@ class SpotifyRepository {
 
     suspend fun getTrack(id: String): TrackResponseDataModel {
         return SpotifyNetwork().getTrack(id)
+    }
+
+    suspend fun getAlbum(id: String): AlbumResponseDataModel {
+        return SpotifyNetwork().getAlbum(id)
     }
 }

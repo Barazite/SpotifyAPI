@@ -19,7 +19,7 @@ data class Item(
     val primary_color: Any,
     val track: Track,
     val video_thumbnail: VideoThumbnail
-): Serializable
+):Serializable
 
 data class AddedBy(
     val external_urls: ExternalUrls,
