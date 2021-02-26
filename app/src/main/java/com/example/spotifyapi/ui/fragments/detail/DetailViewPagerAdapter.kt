@@ -17,7 +17,7 @@ class DetailViewPagerAdapter (fragment: Fragment, val item: Item): FragmentState
             0 -> TrackFragment(item.track.id)
             1 -> AlbumFragment(item.track.album.id)
             2 -> ArtistsFragment(item.track.artists.first().id)
-            3 -> WebFragment(item.track.external_urls.spotify)
+            3 -> WebFragment(item.track.preview_url)
             else -> Fragment()
         }
     }
