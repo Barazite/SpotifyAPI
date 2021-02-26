@@ -46,8 +46,6 @@ class AlbumFragment(private val id: String) : Fragment() {
         return binding.root
     }
 
-
-
     private fun setupView() {
         mAdapter = AlbumAdapter(listOf())
 
