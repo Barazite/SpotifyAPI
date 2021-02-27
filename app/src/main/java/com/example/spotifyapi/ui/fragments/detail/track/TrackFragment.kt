@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.spotifyapi.R
 import com.example.spotifyapi.base.BaseExtraData
 import com.example.spotifyapi.base.BaseState
 import com.example.spotifyapi.databinding.TrackFragmentBinding
 
-class TrackFragment(private val id: String) : Fragment() {
+class TrackFragment(private val id: String? = null) : Fragment() {
 
     lateinit var binding: TrackFragmentBinding
-    val viewModel: TrackViewModel by viewModels()
+    private val viewModel: TrackViewModel by viewModels()
+    private val args: TrackFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = TrackFragmentBinding.inflate(inflater, container, false)
@@ -33,7 +35,11 @@ class TrackFragment(private val id: String) : Fragment() {
             }
         })
 
-        viewModel.requestInformation(id)
+        if (id != null) {
+            viewModel.requestInformation(id)
+        }else{
+            viewModel.requestInformation(args.id)
+        }
 
         return binding.root
     }

@@ -1,11 +1,10 @@
 package com.example.spotifyapi.ui.fragments.detail.album
 
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,10 +15,10 @@ import com.example.spotifyapi.base.BaseState
 import com.example.spotifyapi.databinding.AlbumFragmentBinding
 
 
-class AlbumFragment(private val id: String) : Fragment() {
+class AlbumFragment(private val id: String, private val myListener: (track: String) -> Unit) : Fragment() {
 
     lateinit var binding: AlbumFragmentBinding
-    val viewModel: AlbumViewModel by viewModels()
+    private val viewModel: AlbumViewModel by viewModels()
     lateinit var mAdapter: AlbumAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -47,8 +46,7 @@ class AlbumFragment(private val id: String) : Fragment() {
     }
 
     private fun setupView() {
-        mAdapter = AlbumAdapter(listOf())
-
+        mAdapter = AlbumAdapter(listOf(), myListener)
         binding.rvAlbumFragment.apply{
             adapter = mAdapter
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)

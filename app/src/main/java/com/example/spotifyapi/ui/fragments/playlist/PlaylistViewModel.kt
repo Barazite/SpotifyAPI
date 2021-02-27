@@ -1,7 +1,10 @@
 package com.example.spotifyapi.ui.fragments.playlist
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.spotifyapi.base.BaseState
 import com.example.spotifyapi.base.NetworkManager
 import com.example.spotifyapi.base.NoInternetConnectivity

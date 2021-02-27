@@ -2,7 +2,6 @@ package com.example.spotifyapi.data.network.spotify
 
 import androidx.viewbinding.BuildConfig
 import com.example.spotifyapi.data.model.*
-import com.example.spotifyapi.data.network.token.RefreshToken
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -33,7 +32,7 @@ class SpotifyNetwork {
         loggerInterceptor.level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
         builder.addInterceptor(loggerInterceptor)
 
-        val accessToken = "BQAH86Xa3Zy0WJoO403FktiDC9v2-KU7idyvU-tuROglg6Fdz1HNxtju0G-TUc6bQZrbYhCeD-zEdoaaE9c"
+        val accessToken = "BQB3reVPxWgl8wEe91BoO2jwzBGLl5O7KyTnXY1xIy1RZ_BQLbX0RUIpNCOcFDU8w_wDrb54dpB9gWuI_5c"
         builder.addInterceptor { chain ->
             val request = chain.request().newBuilder()
                 .addHeader("Authorization", "Bearer $accessToken")

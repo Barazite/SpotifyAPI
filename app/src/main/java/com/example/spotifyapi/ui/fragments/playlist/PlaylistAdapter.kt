@@ -15,7 +15,6 @@ class PlaylistAdapter (private var myList: List<Item>, private val context: Cont
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(ItemPlaylistBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val spotifyTrack = myList[position]
         holder.binding.apply{

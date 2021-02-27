@@ -15,7 +15,6 @@ class ArtistsAdapter (private var myList: List<String>) : RecyclerView.Adapter<A
 
     override fun onBindViewHolder(holder: ArtistsAdapter.ViewHolder, position: Int) {
         val genre = myList[position]
-
         holder.binding.tvItemArtistsGenre.text = genre
     }
 

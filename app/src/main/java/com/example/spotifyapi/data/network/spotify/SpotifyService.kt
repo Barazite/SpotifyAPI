@@ -1,7 +1,8 @@
 package com.example.spotifyapi.data.network.spotify
 
 import com.example.spotifyapi.data.model.*
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.Path
 
 
 interface SpotifyService {

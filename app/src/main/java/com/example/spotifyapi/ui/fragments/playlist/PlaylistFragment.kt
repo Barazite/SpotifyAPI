@@ -21,9 +21,8 @@ import java.net.UnknownHostException
 class PlaylistFragment : Fragment() {
 
     lateinit var binding: FragmentPlaylistBinding
-    val viewModel: PlaylistViewModel by viewModels()
+    private val viewModel: PlaylistViewModel by viewModels()
     lateinit var mAdapter: PlaylistAdapter
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentPlaylistBinding.inflate(inflater, container, false)
@@ -86,7 +85,6 @@ class PlaylistFragment : Fragment() {
                 "Error"
             }
         }
-
             MaterialAlertDialogBuilder(requireActivity())
                 .setTitle("Error")
                 .setMessage(msg)

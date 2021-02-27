@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.spotifyapi.base.BaseState
 import com.example.spotifyapi.data.SpotifyRepository
-import com.example.spotifyapi.ui.fragments.playlist.PlaylistState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -26,5 +25,4 @@ class InfoPlaylistViewModel: ViewModel(){
                 }
             }
     }
-
 }

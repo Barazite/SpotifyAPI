@@ -8,14 +8,16 @@ import com.example.spotifyapi.ui.fragments.detail.artists.ArtistsFragment
 import com.example.spotifyapi.ui.fragments.detail.track.TrackFragment
 import com.example.spotifyapi.ui.fragments.detail.web.WebFragment
 
-class DetailViewPagerAdapter (fragment: Fragment, val item: Item): FragmentStateAdapter(fragment){
-    override fun getItemCount(): Int = 4
+class DetailViewPagerAdapter (fragment: Fragment, val item: Item, private val myListener: (track: String) -> Unit): FragmentStateAdapter(fragment){
 
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when(position){
             0 -> TrackFragment(item.track.id)
-            1 -> AlbumFragment(item.track.album.id)
+            1 -> AlbumFragment(item.track.album.id){
+                myListener.invoke(it)
+            }
             2 -> ArtistsFragment(item.track.artists.first().id)
             3 -> WebFragment(item.track.preview_url)
             else -> Fragment()
